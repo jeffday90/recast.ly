@@ -9,16 +9,20 @@ class App extends React.Component {
   constructor(props){
     super(props);
     
+
     this.state = {
       video: exampleVideoData[0],
       //the current videos displayed on the screen
       videos: exampleVideoData,
-      value: null
+      value: 'pizza'
     };
   }
-  
+
   //first search upon initialization
 
+  componentDidMount(){
+    this.handleSubmit()
+  }
 
   eventHandler(videoObj){
     this.setState({
@@ -26,24 +30,16 @@ class App extends React.Component {
     });
   }
 
-  
+
 
   handleChange(event){ 
     this.setState({
       value: event.target.value
-  })
-    console.log('handle change state value:' + this.state.value)
-  }
-
-  stateSet(data){
-    this.setState({
-      videos: data.items
     })
   }
 
   handleSubmit(){
-    //THIS WORKS!!!!!!!
-    searchYouTube(this.state.value, (data) => this.setState({videos:data}));
+    searchYouTube(this.state.value, (data) => this.setState({videos:data, video:data[0]}));
   }
 
   

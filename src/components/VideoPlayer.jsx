@@ -21,3 +21,6 @@ VideoPlayer.propTypes = {
 export default VideoPlayer;
 
 // https://www.youtube.com/embed/
+
+//you can use {video} in the parameter of VideoPlayer
+  //rather than props.video
